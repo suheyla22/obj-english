@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "ObjEnglish",
+    "slug": "obj-english",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.student.objenglish",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Nesne tanıma için kamera gerekiyor.",
+        "NSPhotoLibraryUsageDescription": "Galeriden fotoğraf seçmek için gerekiyor."
+      }
+    },
+    "android": {
+      "package": "com.student.objenglish",
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Galeriden fotoğraf seçmek için erişim gerekiyor.",
+          "cameraPermission": "Nesne tanıma için kamera erişimi gerekiyor."
+        }
+      ],
+      "expo-asset",
+      "expo-font"
+    ]
+  }
+}
