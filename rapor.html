@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>ObjEnglish - Tasarım 2 Proje Raporu</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #000;
+    background: #fff;
+    padding: 2.5cm 2.5cm 2.5cm 3cm;
+    max-width: 21cm;
+    margin: 0 auto;
+  }
+  h1 { font-size: 16pt; text-align: center; margin-bottom: 6pt; }
+  h2 { font-size: 13pt; margin-top: 18pt; margin-bottom: 6pt; border-bottom: 1px solid #000; padding-bottom: 2pt; }
+  h3 { font-size: 12pt; margin-top: 12pt; margin-bottom: 4pt; }
+  p  { margin-bottom: 8pt; text-align: justify; }
+  ul, ol { margin-left: 20pt; margin-bottom: 8pt; }
+  li { margin-bottom: 3pt; }
+  .center { text-align: center; }
+  .header-block { text-align: center; margin-bottom: 24pt; }
+  .header-block p { text-align: center; margin-bottom: 2pt; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10pt;
+    font-size: 11pt;
+  }
+  th, td {
+    border: 1px solid #555;
+    padding: 5pt 8pt;
+    text-align: left;
+  }
+  th { background: #f0f0f0; font-weight: bold; }
+  .code {
+    font-family: 'Courier New', monospace;
+    font-size: 10pt;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 6pt 10pt;
+    margin: 6pt 0;
+    display: block;
+  }
+  .page-break { page-break-before: always; }
+  @media print {
+    body { padding: 0; }
+    .page-break { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- KAPAK -->
+<div class="header-block" style="margin-top: 60pt;">
+  <p style="font-size:13pt; font-weight:bold;">T.C.</p>
+  <p style="font-size:13pt; font-weight:bold;">BÖLÜM: BİLGİSAYAR MÜHENDİSLİĞİ</p>
+  <br>
+  <p style="font-size:15pt; font-weight:bold; margin-top:30pt;">TASARIM 2 PROJESİ</p>
+  <p style="font-size:18pt; font-weight:bold; margin-top:10pt;">ObjEnglish</p>
+  <p style="font-size:13pt; margin-top:6pt;">Nesne Tanıma Tabanlı İngilizce Kelime Öğrenme Mobil Uygulaması</p>
+  <br><br>
+  <p style="font-size:12pt; margin-top:40pt;"><strong>Hazırlayan:</strong> Süheyla ÖZDEMİR</p>
+  <p style="font-size:12pt;"><strong>Öğrenci No:</strong> 51349548302</p>
+  <br>
+  <p style="font-size:12pt; margin-top:40pt;">2026</p>
+</div>
+
+<!-- İÇİNDEKİLER -->
+<div class="page-break">
+<h2>İçindekiler</h2>
+<ol>
+  <li>Giriş ve Proje Tanımı</li>
+  <li>Teknoloji Seçimi ve Gerekçesi</li>
+  <li>Sistem Mimarisi ve Uygulama Yapısı</li>
+  <li>Geliştirilen Özellikler</li>
+  <li>Geliştirme Süreci</li>
+  <li>Test ve Sonuçlar</li>
+  <li>Sonuç ve Değerlendirme</li>
+  <li>Kaynaklar</li>
+</ol>
+</div>
+
+<!-- 1. GİRİŞ -->
+<div class="page-break">
+<h2>1. Giriş ve Proje Tanımı</h2>
+
+<p>ObjEnglish, mobil cihaz kamerası aracılığıyla gerçek ortamdaki nesneleri tanıyan ve bu nesnelerin İngilizce karşılıklarını kullanıcıya öğreten bir mobil uygulamadır. Uygulama, görüntü işleme teknolojisi ile dil öğretimini birleştiren yenilikçi bir yaklaşım benimsemektedir.</p>
+
+<p>Geleneksel kelime öğrenme yöntemlerinde kullanıcılar soyut kartlar veya listeler üzerinden çalışmak zorunda kalmaktadır. Bu çalışmada ise kullanıcının günlük yaşamda karşılaştığı somut nesnelerin fotoğraflanması ve anında İngilizce karşılığının gösterilmesi esasına dayalı bir öğrenme deneyimi sunulmaktadır.</p>
+
+<h3>1.1 Projenin Amacı</h3>
+<p>Projenin temel amacı, mobil cihaz kamerası ile nesne tanıma yaparak kullanıcının gördüğü nesnenin İngilizce karşılığını öğrenmesini sağlamaktır. Bu sayede kullanıcı hem görüntü işleme temelli bir sistem kullanmış olacak hem de günlük hayatta İngilizce kelime öğrenimini destekleyen bir mobil uygulama geliştirmiş olacaktır.</p>
+
+<h3>1.2 Projenin Kapsamı</h3>
+<p>Uygulama aşağıdaki temel işlevleri kapsamaktadır:</p>
+<ul>
+  <li>Kamera veya galeri aracılığıyla nesne fotoğraflama</li>
+  <li>Yapay zeka destekli nesne tanıma ve İngilizce isimlendirme</li>
+  <li>IPA fonetik transkripsiyon gösterimi</li>
+  <li>Türkçe anlam gösterimi</li>
+  <li>Sesli telaffuz (Text-to-Speech)</li>
+  <li>Örnek İngilizce cümle gösterimi</li>
+  <li>Çoklu quiz modları (Flashcard, Çoktan Seçmeli, Yazım)</li>
+  <li>İlerleme takibi (XP sistemi, günlük seri, kelime ustalığı)</li>
+  <li>Tarama geçmişi ve kelime kütüphanesi</li>
+</ul>
+</div>
+
+<!-- 2. TEKNOLOJİ SEÇİMİ -->
+<div class="page-break">
+<h2>2. Teknoloji Seçimi ve Gerekçesi</h2>
+
+<h3>2.1 Başlangıç Planı ve Karşılaşılan Sorunlar</h3>
+<p>Projenin başlangıç planında Flutter framework'ü ve TensorFlow Lite ile yerel nesne tanıma modeli (MobileNet/COCO-SSD) kullanılması öngörülmüştü. Ancak geliştirme sürecinde çeşitli teknik engeller ile karşılaşılmıştır:</p>
+<ul>
+  <li>TensorFlow Lite modellerinin iOS cihazlarda fiziksel bağlantı gerektirmesi</li>
+  <li>MobileNet modelinin yalnızca 80 COCO nesnesi sınıfını tanıyabilmesi</li>
+  <li>Hermes JavaScript motoru ile TF.js uyumsuzluğu</li>
+  <li>Offline model doğruluk oranının %40-60 düzeyinde kalması</li>
+</ul>
+
+<h3>2.2 Teknoloji Değişikliğinin Gerekçesi</h3>
+<p>Yapılan araştırma sonucunda Google Gemini 2.5 Flash Vision API'nin kullanılmasına karar verilmiştir. Bu karar aşağıdaki teknik gerekçelere dayanmaktadır:</p>
+
+<table>
+  <tr><th>Kriter</th><th>TFLite + MobileNet</th><th>Gemini 2.5 Flash</th></tr>
+  <tr><td>Tanınabilir nesne sayısı</td><td>80 (COCO sınıfları)</td><td>Sınırsız</td></tr>
+  <tr><td>Ortalama doğruluk oranı</td><td>%40-60</td><td>%90-98</td></tr>
+  <tr><td>Fonetik/çeviri desteği</td><td>Yok</td><td>Var (tek API çağrısı)</td></tr>
+  <tr><td>iOS Expo Go desteği</td><td>Sorunlu</td><td>Tam uyumlu</td></tr>
+  <tr><td>Geliştirme karmaşıklığı</td><td>Yüksek</td><td>Düşük</td></tr>
+</table>
+
+<p>Flutter yerine React Native (Expo) tercih edilmesinin sebebi ise iOS cihazda test için Mac bilgisayar gerektirmemesi ve Expo Go uygulaması aracılığıyla anlık test imkânı sunmasıdır.</p>
+
+<h3>2.3 Kullanılan Teknolojiler</h3>
+<ul>
+  <li><strong>React Native 0.81.5 / Expo SDK 54:</strong> Mobil uygulama geliştirme çerçevesi</li>
+  <li><strong>Google Gemini 2.5 Flash API:</strong> Görüntü tabanlı nesne tanıma ve dil işleme</li>
+  <li><strong>expo-image-picker:</strong> Kamera ve galeri erişimi</li>
+  <li><strong>expo-image-manipulator:</strong> Görüntü sıkıştırma (512px, %75 kalite)</li>
+  <li><strong>expo-speech:</strong> Text-to-Speech telaffuz özelliği</li>
+  <li><strong>expo-file-system:</strong> Base64 görüntü okuma</li>
+  <li><strong>AsyncStorage:</strong> Yerel veri depolama</li>
+  <li><strong>React Navigation:</strong> Sekme tabanlı navigasyon</li>
+  <li><strong>expo-haptics:</strong> Dokunsal geri bildirim</li>
+  <li><strong>expo-linear-gradient:</strong> Arayüz tasarımı</li>
+</ul>
+</div>
+
+<!-- 3. SİSTEM MİMARİSİ -->
+<div class="page-break">
+<h2>3. Sistem Mimarisi ve Uygulama Yapısı</h2>
+
+<h3>3.1 Genel Mimari</h3>
+<p>Uygulama istemci-sunucu mimarisine dayanmaktadır. Kullanıcı etkileşimleri React Native tarafında işlenmekte, nesne tanıma işlemi için Google Gemini API'ye HTTPS üzerinden istek gönderilmektedir.</p>
+
+<p>Görüntü işleme akışı şu adımlardan oluşmaktadır:</p>
+<ol>
+  <li>Kullanıcı kamera veya galeriden fotoğraf seçer</li>
+  <li>Görüntü 512px genişliğe küçültülür, %75 JPEG sıkıştırması uygulanır</li>
+  <li>Base64 kodlamasına dönüştürülür</li>
+  <li>Gemini 2.5 Flash API'ye JSON formatında gönderilir</li>
+  <li>API; nesne adı, güven skoru, Türkçe anlam, fonetik, örnek cümle ve emoji döndürür</li>
+  <li>Sonuçlar ekranda gösterilir ve AsyncStorage'a kaydedilir</li>
+</ol>
+
+<h3>3.2 Dosya Yapısı</h3>
+<span class="code">
+obj_english/<br>
+├── App.js                    (Ana uygulama, 4 sekme navigasyonu)<br>
+├── src/<br>
+│   ├── screens/<br>
+│   │   ├── ScanScreen.js     (Nesne tarama ekranı)<br>
+│   │   ├── LearnScreen.js    (Quiz hub - 3 mod)<br>
+│   │   ├── HistoryScreen.js  (Tarama geçmişi)<br>
+│   │   ├── ProgressScreen.js (İlerleme ve istatistikler)<br>
+│   │   └── OnboardingScreen.js (İlk açılış ekranı)<br>
+│   ├── utils/<br>
+│   │   ├── classifier.js     (Gemini API entegrasyonu)<br>
+│   │   └── storage.js        (AsyncStorage işlemleri)<br>
+│   ├── components/<br>
+│   │   └── ConfidenceBar.js  (Güven skoru animasyonu)<br>
+│   └── constants/<br>
+│       └── theme.js          (Renk ve gölge sabitleri)<br>
+└── .env                      (API anahtarı - git dışı)
+</span>
+
+<h3>3.3 API İstisna Yönetimi</h3>
+<p>Gemini API'sine yapılan isteklerde aşağıdaki hata senaryoları ele alınmıştır:</p>
+<ul>
+  <li><strong>429 (Rate Limit):</strong> 10 saniye bekleme ve otomatik yeniden deneme</li>
+  <li><strong>404 (Model bulunamadı):</strong> 4 farklı model arasında otomatik geçiş (fallback)</li>
+  <li><strong>Truncated JSON:</strong> Kısmi yanıtlardan geçerli nesnelerin kurtarılması</li>
+  <li><strong>UI Cooldown:</strong> Her taramadan sonra 5 saniyelik bekleme süresi</li>
+</ul>
+</div>
+
+<!-- 4. ÖZELLİKLER -->
+<div class="page-break">
+<h2>4. Geliştirilen Özellikler</h2>
+
+<h3>4.1 Nesne Tarama Ekranı</h3>
+<p>Uygulamanın ana ekranında kullanıcı kamera veya galeri aracılığıyla nesne fotoğrafı çekebilmektedir. Gemini 2.5 Flash modeli görüntüyü analiz ederek şu bilgileri tek API çağrısında döndürmektedir: İngilizce nesne adı, güven yüzdesi, Türkçe anlam, IPA fonetik transkripsiyon, örnek İngilizce cümle ve ilgili emoji. Sonuç kartı animasyonlu fade-in ve spring efektiyle görüntülenmektedir. Kelime yanındaki hoparlör ikonu ile expo-speech kütüphanesi üzerinden sesli telaffuz sağlanmaktadır.</p>
+
+<h3>4.2 Quiz Sistemi (3 Mod)</h3>
+<p>Tarama geçmişindeki kelimeler üzerinden üç farklı quiz modu sunulmaktadır:</p>
+<ul>
+  <li><strong>Flashcard Modu:</strong> Fotoğraf görüntülenir, karta dokunulduğunda kelime, fonetik ve Türkçe anlam açılır. Kullanıcı "Bildim" veya "Bilmedim" seçer.</li>
+  <li><strong>Çoktan Seçmeli Modu:</strong> Fotoğraf gösterilerek 4 kelime seçeneği sunulur. Doğru cevap yeşil, yanlış seçim kırmızıyla işaretlenir. 0,9 saniye sonra otomatik geçiş yapılır.</li>
+  <li><strong>Yazım Modu:</strong> Fotoğraf ve fonetik ipucu gösterilir, kullanıcı kelimeyi yazarak gönderir. Yanlış girişte sallama animasyonu ve doğru cevap gösterimi uygulanır.</li>
+</ul>
+
+<h3>4.3 İlerleme Takip Sistemi</h3>
+<p>Kullanıcı motivasyonunu artırmak amacıyla gamification (oyunlaştırma) öğeleri uygulanmıştır:</p>
+<ul>
+  <li><strong>XP Sistemi:</strong> Her tarama +10 XP, her doğru quiz cevabı +20 XP kazandırır</li>
+  <li><strong>Seviye Sistemi:</strong> 10 seviye (Başlangıç → Efsane), XP eşiklerine göre ilerleme</li>
+  <li><strong>Gün Serisi (Streak):</strong> Günlük kullanım takibi ve en uzun seri kaydı</li>
+  <li><strong>Kelime Ustalığı:</strong> Her kelime için 5 yıldızlı ustalık seviyesi (her 3 doğru cevap = 1 yıldız)</li>
+  <li><strong>İstatistikler:</strong> Toplam tarama, doğru/yanlış sayısı, başarı yüzdesi</li>
+</ul>
+
+<h3>4.4 Geçmiş ve Yönetim</h3>
+<p>Tüm taramalar AsyncStorage'da saklanmakta, tarama geçmişi fotoğraf, kelime, fonetik, Türkçe anlam, güven skoru ve zaman damgasıyla listelenmektedir. Kullanıcı tek tek kayıt silebilir (uzun basma ile) veya tüm geçmişi temizleyebilir.</p>
+
+<h3>4.5 Onboarding Ekranı</h3>
+<p>İlk açılışta 3 slaytlık karşılama ekranı sunulmaktadır. AsyncStorage ile "görüldü" durumu kaydedilerek sonraki açılışlarda tekrar gösterilmemesi sağlanmıştır.</p>
+</div>
+
+<!-- 5. GELİŞTİRME SÜRECİ -->
+<div class="page-break">
+<h2>5. Geliştirme Süreci</h2>
+
+<table>
+  <tr><th>Hafta</th><th>Yapılan Çalışma</th><th>Durum</th></tr>
+  <tr><td>1</td><td>Kapsam belirleme, literatür taraması, gereksinim analizi</td><td>✓</td></tr>
+  <tr><td>2</td><td>Teknoloji kurulumu: Expo SDK 54, React Native ortamı</td><td>✓</td></tr>
+  <tr><td>3</td><td>Teknoloji değişikliği: Flutter/TFLite → React Native/Gemini API</td><td>✓</td></tr>
+  <tr><td>4</td><td>Arayüz tasarımı: renk paleti, bileşen hiyerarşisi, navigasyon yapısı</td><td>✓</td></tr>
+  <tr><td>5</td><td>Proje altyapısı: 4 sekme navigasyonu, tema sistemi</td><td>✓</td></tr>
+  <tr><td>6</td><td>Kamera entegrasyonu: expo-image-picker, izin yönetimi</td><td>✓</td></tr>
+  <tr><td>7</td><td>Gemini API entegrasyonu: görüntü sıkıştırma, Base64, hata yönetimi</td><td>✓</td></tr>
+  <tr><td>8</td><td>Kelime bilgisi sistemi: fonetik, örnek cümle, Türkçe anlam, emoji</td><td>✓</td></tr>
+  <tr><td>9</td><td>Sesli telaffuz: expo-speech, en-US dil desteği</td><td>✓</td></tr>
+  <tr><td>10</td><td>Ek özellikler: 3 quiz modu, XP/streak sistemi, onboarding</td><td>✓</td></tr>
+  <tr><td>11</td><td>Test ve hata düzeltme: JSON truncation fix, API fallback, bireysel silme</td><td>✓</td></tr>
+  <tr><td>12</td><td>Son düzenlemeler, .env güvenliği, GitHub entegrasyonu, rapor yazımı</td><td>✓</td></tr>
+  <tr><td>13</td><td>Sunum hazırlığı</td><td>→</td></tr>
+</table>
+
+<h2>6. Test ve Sonuçlar</h2>
+
+<h3>6.1 Test Ortamı</h3>
+<p>Uygulama iPhone üzerinde Expo Go ile test edilmiştir. Geliştirme ortamı olarak Windows 11 işletim sisteminde VS Code kullanılmıştır.</p>
+
+<h3>6.2 Karşılaşılan Sorunlar ve Çözümler</h3>
+<table>
+  <tr><th>Sorun</th><th>Çözüm</th></tr>
+  <tr><td>expo-file-system API değişikliği</td><td>Legacy import yoluna geçiş</td></tr>
+  <tr><td>Gemini 429 rate limit hatası</td><td>10s retry + 5s UI cooldown</td></tr>
+  <tr><td>JSON yanıtının kesilmesi</td><td>Kısmi nesne kurtarma algoritması</td></tr>
+  <tr><td>Model 404 hatası</td><td>4 model arasında otomatik fallback</td></tr>
+  <tr><td>iOS sesli okuma çalışmaması</td><td>'en' → 'en-US' dil kodu düzeltmesi</td></tr>
+</table>
+
+<h3>6.3 Doğruluk Oranı</h3>
+<p>Gemini 2.5 Flash modeli ile yapılan testlerde yaygın günlük nesnelerde (kedi, araba, laptop vb.) %95 üzeri doğruluk oranı elde edilmiştir. Marka ürünleri ve özgün nesnelerde de anlamlı sonuçlar üretildiği gözlemlenmiştir (örnek: "Züber" marka ürünü → "snack bar" olarak tanımlama).</p>
+</div>
+
+<!-- SONUÇ -->
+<div class="page-break">
+<h2>7. Sonuç ve Değerlendirme</h2>
+
+<p>Bu proje kapsamında, mobil cihaz kamerası ile nesne tanıma yaparak İngilizce kelime öğretimini destekleyen ObjEnglish uygulaması başarıyla geliştirilmiştir. Proje sürecinde teknoloji seçimi aşamasında offline model yerine bulut tabanlı API'ye geçiş kararı, doğruluk oranında ciddi iyileşme sağlamış ve tanınabilir nesne sayısını 80 ile sınırlı COCO kategorilerinden fiilen sınırsız nesne tanımaya taşımıştır.</p>
+
+<p>Geliştirilen uygulama, salt nesne tanımanın ötesine geçerek kapsamlı bir dil öğrenme platformuna dönüştürülmüştür. Flashcard, çoktan seçmeli ve yazım quiz modları; XP, streak ve ustalık sistemi gibi gamification öğeleri; sesli telaffuz ve fonetik transkripsiyon destekli kelime kartları bu genişlemenin somut çıktılarıdır.</p>
+
+<h3>7.1 Kısıtlamalar</h3>
+<ul>
+  <li>İnternet bağlantısı gerektirmektedir; çevrimdışı kullanım desteklenmemektedir</li>
+  <li>Canlı kamera akışı yerine fotoğraf tabanlı tanıma kullanılmaktadır</li>
+  <li>Ücretsiz API planı nedeniyle istek sınırlaması mevcuttur</li>
+</ul>
+
+<h3>7.2 Gelecek Geliştirmeler</h3>
+<ul>
+  <li>Gerçek zamanlı kamera akışı ile canlı nesne tanıma</li>
+  <li>Spaced repetition algoritması (yanlış bilinen kelimelerin daha sık tekrarı)</li>
+  <li>Dinleme anlama quizi (sesli kelimeyi fotoğrafla eşleştirme)</li>
+  <li>Backend proxy ile API güvenliği</li>
+  <li>Çoklu kullanıcı profili desteği</li>
+</ul>
+
+<h2>8. Kaynaklar</h2>
+<ol>
+  <li>Google Gemini API Documentation. (2024). <em>Gemini 2.5 Flash Vision Model</em>. https://ai.google.dev/docs</li>
+  <li>Meta Platforms. (2024). <em>React Native Documentation</em>. https://reactnative.dev</li>
+  <li>Expo Team. (2024). <em>Expo SDK 54 Documentation</em>. https://docs.expo.dev</li>
+  <li>Howard, A. G., et al. (2017). <em>MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications</em>. arXiv:1704.04861</li>
+  <li>Duolingo Research. (2022). <em>Gamification in Language Learning Applications</em>. Duolingo Blog.</li>
+  <li>React Navigation Team. (2024). <em>React Navigation 6 Documentation</em>. https://reactnavigation.org</li>
+</ol>
+</div>
+
+</body>
+</html>
