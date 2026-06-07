@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
@@ -10,7 +10,8 @@ import HistoryScreen    from './src/screens/HistoryScreen';
 import LearnScreen      from './src/screens/LearnScreen';
 import ProgressScreen   from './src/screens/ProgressScreen';
 import OnboardingScreen from './src/screens/OnboardingScreen';
-import { COLORS } from './src/constants/theme';
+import { COLORS }          from './src/constants/theme';
+import { ThemeProvider, useTheme } from './src/context/ThemeContext';
 import { hasSeenOnboarding } from './src/utils/storage';
 
 const Tab = createBottomTabNavigator();
@@ -22,7 +23,8 @@ const ICONS = {
   İlerleme: ['trophy',  'trophy-outline'],
 };
 
-export default function App() {
+function MainApp() {
+  const { isDark, colors } = useTheme();
   const [onboardingDone, setOnboardingDone] = useState(null);
 
   useEffect(() => {
@@ -33,33 +35,37 @@ export default function App() {
 
   if (!onboardingDone) {
     return (
-      <SafeAreaProvider>
+      <>
         <StatusBar style="light" />
         <OnboardingScreen onDone={() => setOnboardingDone(true)} />
-      </SafeAreaProvider>
+      </>
     );
   }
 
+  const navTheme = isDark
+    ? { ...DarkTheme, colors: { ...DarkTheme.colors, background: colors.background, card: colors.surface, border: colors.border } }
+    : { ...DefaultTheme, colors: { ...DefaultTheme.colors, background: colors.background, card: colors.surface, border: colors.border } };
+
   return (
-    <SafeAreaProvider>
-      <StatusBar style="light" />
-      <NavigationContainer>
+    <>
+      <StatusBar style={isDark ? 'light' : 'dark'} />
+      <NavigationContainer theme={navTheme}>
         <Tab.Navigator
           screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
               const [active, inactive] = ICONS[route.name];
               return <Ionicons name={focused ? active : inactive} size={size} color={color} />;
             },
-            tabBarActiveTintColor: COLORS.primary,
-            tabBarInactiveTintColor: '#9CA3AF',
+            tabBarActiveTintColor: colors.primary,
+            tabBarInactiveTintColor: colors.textSecondary,
             tabBarStyle: {
-              backgroundColor: '#FFFFFF',
-              borderTopColor: '#E5E7EB',
+              backgroundColor: colors.surface,
+              borderTopColor: colors.border,
               paddingBottom: 5,
               height: 60,
             },
             tabBarLabelStyle: { fontSize: 11, fontWeight: '600' },
-            headerStyle: { backgroundColor: COLORS.primary },
+            headerStyle: { backgroundColor: colors.primary },
             headerTintColor: '#FFFFFF',
             headerTitleStyle: { fontWeight: 'bold', fontSize: 18 },
           })}
@@ -70,6 +76,16 @@ export default function App() {
           <Tab.Screen name="İlerleme" component={ProgressScreen} options={{ title: 'İlerleme' }} />
         </Tab.Navigator>
       </NavigationContainer>
-    </SafeAreaProvider>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <SafeAreaProvider>
+        <MainApp />
+      </SafeAreaProvider>
+    </ThemeProvider>
   );
 }

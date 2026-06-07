@@ -13,6 +13,26 @@ export const COLORS = {
   overlay: 'rgba(79, 70, 229, 0.08)',
 };
 
+export const DARK_COLORS = {
+  primary: '#818CF8',
+  primaryLight: '#A5B4FC',
+  primaryDark: '#4F46E5',
+  accent: '#34D399',
+  warning: '#FCD34D',
+  danger: '#F87171',
+  background: '#0F172A',
+  surface: '#1E293B',
+  text: '#F1F5F9',
+  textSecondary: '#94A3B8',
+  border: '#334155',
+  overlay: 'rgba(129, 140, 248, 0.12)',
+};
+
+export function getColors(isDark) {
+  return isDark ? DARK_COLORS : COLORS;
+}
+
+// Uygulama genelinde kullanılan gölge stilleri (küçük, orta, büyük)
 export const SHADOWS = {
   small: {
     shadowColor: '#000',

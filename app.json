@@ -29,7 +29,8 @@
         }
       ],
       "expo-asset",
-      "expo-font"
+      "expo-font",
+      ["expo-notifications", { "color": "#4F46E5" }]
     ]
   }
 }
